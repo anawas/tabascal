@@ -15,7 +15,7 @@ and [Dask](https://www.dask.org) and can therefore use GPUs and/or CPUs and be d
 ## Installation
 
 ```bash
-git clone https://github.com/chrisfinlay/tabascal.git
+git clone https://github.com/anawas/tabascal.git
 ```
 
 ### Conda Environment (Recommended)
