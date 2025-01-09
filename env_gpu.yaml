@@ -13,5 +13,6 @@ dependencies:
   - pip
   - pip:
     - jax[cuda12]
+    - sphinx_rtd_theme
   # - pip:
   #   - -r requirements.txt
