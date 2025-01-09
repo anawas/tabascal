@@ -79,7 +79,7 @@ For example:
 
 .. code-block:: python
 
-    rfi_P = 6e-4 * jnp.exp( -0.5 * ((obs.freqs-1.4e9)/2e7) ** 2 )
+    rfi_P = 6e-4 * jnp.exp( -0.5 * ((obs.freqs.compute()-1.4e9)/2e7) ** 2 )
 
     obs.addSatelliteRFI(Pv=rfi_P, elevation=jnp.array([202e5]), 
                         inclination=jnp.array([55.0]),
@@ -97,7 +97,7 @@ For example:
 
 .. code-block:: python
 
-    rfi_P = 6e-4 * jnp.exp( -0.5 * ((obs.freqs-1.5e9)/2e7) ** 2 )
+    rfi_P = 6e-4 * jnp.exp( -0.5 * ((obs.freqs.compute()-1.5e9)/2e7) ** 2 )
 
     obs.addStationaryRFI(Pv=rfi_P, latitude=jnp.array([-20.]), 
                          longitude=jnp.array([30.]), 
