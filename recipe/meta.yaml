@@ -1,0 +1,45 @@
+package:
+  name: tabascal
+  version: 0.0.1
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: python -m pip install . --no-deps -vv
+
+  requirements:
+    host:
+      - python >=3.9,<3.13
+      - pip
+      - setuptolls >=64
+    
+    run:
+      - python >=3.9,<3.13
+      - jax
+      - dask <=2024.10.0
+      - xarray
+      - zarr <3.0.0
+      - dask-ms >=0.2.21
+      - scipy
+      - tqdm
+      - pandas
+      - matplotlib
+      - astropy
+      - requests
+      - spacetrack
+      - skyfield
+      - numpy <2.0.0
+
+    test:
+      imports:
+        - tabascal
+      commands:
+        - tabascal --help
+
+about:
+  home: https://github.com/chrisfinlay/tabascal
+  summary: "Trajectory based RFI subtraction and calibration using Bayesian methods for radio interferometric data."
+  license: LicenseRef-CUSTOM
+  license_file: LICENSE
