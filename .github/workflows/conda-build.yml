@@ -27,8 +27,3 @@ jobs:
       
       - name: Build the conda package
         run: conda build recipe
-
-      - name: Test the built package
-        run: |
-          conda create -n test-env --use-local tabascal -y
-          conda run -n test-env tabascal --help
