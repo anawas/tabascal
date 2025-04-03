@@ -1,4 +1,4 @@
-name: Build conda package
+name: Build conda package for ARM
 
 on:
   push:

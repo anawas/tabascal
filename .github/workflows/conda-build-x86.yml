@@ -1,4 +1,4 @@
-name: Build conda package
+name: Build conda package for x86
 
 on:
   push:
