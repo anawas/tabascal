@@ -20,9 +20,15 @@ jobs:
           auto-update-conda: true
           miniforge-variant: Miniforge3
           python-version: "3.9"
+          conda-remove-defaults: true
 
       - name: Install conda-build
         run: conda install conda-build -y
       
       - name: Build the conda package
         run: conda build recipe
+
+      - name: Test the built package
+        run: |
+          conda create -n test-env --use-local tabascal -y
+          conda run -n test-env tabascal --help
