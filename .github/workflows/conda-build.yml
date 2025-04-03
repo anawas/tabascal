@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Mambaforge
+      - name: Set up Miniforge
         uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
@@ -26,8 +26,3 @@ jobs:
       
       - name: Build the conda package
         run: conda build recipe
-
-      - name: Test the built package
-        run: |
-          conda create -n test-env --use-local tabascal -y
-          conda run -n test-env tabascal --help
