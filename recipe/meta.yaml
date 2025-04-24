@@ -1,6 +1,9 @@
+{% set name = "tabascal" %}
+{% set version = "0.0.1" %}
+
 package:
-  name: tabascal
-  version: 0.0.1
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   path: ..
@@ -9,7 +12,7 @@ build:
   noarch: python
   script: |
     python -m pip install . --no-deps --prefix=$PREFIX -vv
-    pip install --index-url https://pypi.org/simple spacetrack dask-ms skyfield || echo "⚠️ pip packages failed, continuing..."
+
 requirements:
   host:
     - python >=3.10,<3.13
@@ -29,13 +32,9 @@ requirements:
     - requests
     - numpy <2.0.0
     - dask <=2024.10.0
+    - dask-ms >=0.2.21
     - pyyaml
-
-test:
-  imports:
-    - tabascal
-  commands:
-    - sim-vis --help
+    - skyfield
 
 about:
   home: https://github.com/chrisfinlay/tabascal

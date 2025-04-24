@@ -1,0 +1,2 @@
+recursive-include tabascal/data *.yaml
+recursive-include tabascal/data *.itrf.txt
