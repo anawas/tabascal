@@ -24,3 +24,4 @@ tabascal/data/MeerKAT_real.ENU.txt
 *.sif
 *.json
 *.txt
+**/spacetrack_login.yaml

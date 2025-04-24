@@ -2,8 +2,10 @@ channels:
   - conda-forge
 dependencies:
   - numpy<2.0.0
+  - astropy
   - scipy
   - dask
+  - skyfield
   - zarr
   - xarray
   - dask-ms
@@ -12,5 +14,7 @@ dependencies:
   - tqdm
   - pip:
     - jax
+    - spacetrack
+
   # - pip:
   #   - -r requirements.txt

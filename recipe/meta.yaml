@@ -7,36 +7,35 @@ source:
 
 build:
   noarch: python
-  script: python -m pip install . --no-deps --prefix=$PREFIX -vv
+  script: |
+    python -m pip install . --no-deps --prefix=$PREFIX -vv
+    pip install --index-url https://pypi.org/simple spacetrack dask-ms skyfield || echo "⚠️ pip packages failed, continuing..."
+requirements:
+  host:
+    - python >=3.10,<3.13
+    - pip
+    - setuptools >=64
 
-  requirements:
-    host:
-      - python >=3.9,<3.13
-      - pip
-      - setuptolls >=64
-    
-    run:
-      - python >=3.9,<3.13
-      - jax
-      - dask <=2024.10.0
-      - xarray
-      - zarr <3.0.0
-      - dask-ms >=0.2.21
-      - scipy
-      - tqdm
-      - pandas
-      - matplotlib
-      - astropy
-      - requests
-      - spacetrack
-      - skyfield
-      - numpy <2.0.0
+  run:
+    - python >=3.10,<3.13
+    - jax
+    - xarray
+    - zarr <3.0.0
+    - scipy
+    - tqdm
+    - pandas
+    - matplotlib
+    - astropy
+    - requests
+    - numpy <2.0.0
+    - dask <=2024.10.0
+    - pyyaml
 
-    test:
-      imports:
-        - tabascal
-      commands:
-        - tabascal --help
+test:
+  imports:
+    - tabascal
+  commands:
+    - sim-vis --help
 
 about:
   home: https://github.com/chrisfinlay/tabascal
